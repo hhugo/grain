@@ -20,7 +20,7 @@ open Wasm_utils;
 [@deriving (sexp, yojson)]
 type pers_flags =
   | Opaque
-  | Unsafe_string;
+ |  Unsafe_string;
 
 type error =
   | Not_an_interface(string)
@@ -76,8 +76,8 @@ type config_opt =
 let config_sum = Config.get_root_config_digest;
 
 let build_full_cmi = (~name, ~sign, ~crcs, ~flags, ~type_metadata) => {
-  let ns_sign = Marshal.to_bytes((name, sign, config_sum()), []);
-  let crc = Digest.bytes(ns_sign);
+  let ns_sign = Marshal.to_string((name, sign, config_sum()), []);
+  let crc = Digest.string(ns_sign);
   let crcs = [(name, Some(crc)), ...crcs];
   let cmi_config_sum = config_sum();
   {
@@ -91,8 +91,8 @@ let build_full_cmi = (~name, ~sign, ~crcs, ~flags, ~type_metadata) => {
 };
 
 let cmi_to_crc = ({cmi_name, cmi_sign, cmi_config_sum}) => {
-  let ns_sign = Marshal.to_bytes((cmi_name, cmi_sign, cmi_config_sum), []);
-  let crc = Digest.bytes(ns_sign);
+  let ns_sign = Marshal.to_string((cmi_name, cmi_sign, cmi_config_sum), []);
+  let crc = Digest.string(ns_sign);
   crc;
 };
 
