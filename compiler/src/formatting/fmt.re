@@ -2144,16 +2144,17 @@ let print_expression = (fmt, ~infix_wrap=d => group(indent(d)), expr) => {
               _,
               [
                 {
-                  paa_expr: {
-                    pexp_desc:
-                      PExpRecordGet(
-                        {
-                          pexp_desc:
-                            PExpId({txt: IdentName({txt: new_name})}),
-                        },
-                        {txt: new_elem_name},
-                      ),
-                  },
+                  paa_expr:
+                    {
+                      pexp_desc:
+                        PExpRecordGet(
+                          {
+                            pexp_desc:
+                              PExpId({txt: IdentName({txt: new_name})}),
+                          },
+                          {txt: new_elem_name},
+                        ),
+                    },
                 },
                 _,
               ],
@@ -2194,9 +2195,8 @@ let print_expression = (fmt, ~infix_wrap=d => group(indent(d)), expr) => {
               _,
               [
                 {
-                  paa_expr: {
-                    pexp_desc: PExpId({txt: IdentName({txt: new_name})}),
-                  },
+                  paa_expr:
+                    {pexp_desc: PExpId({txt: IdentName({txt: new_name})})},
                 },
                 _,
               ],

@@ -660,12 +660,13 @@ let rec transl_imm =
       [
         {
           vb_expr,
-          vb_pat: {
-            pat_desc:
-              TPatVar(id, _) | TPatAlias({pat_desc: TPatAny}, id, _),
-            pat_env,
-            pat_type,
-          },
+          vb_pat:
+            {
+              pat_desc:
+                TPatVar(id, _) | TPatAlias({pat_desc: TPatAny}, id, _),
+              pat_env,
+              pat_type,
+            },
         },
         ...rest,
       ],
@@ -1224,10 +1225,11 @@ and transl_comp_expression =
       [
         {
           vb_expr,
-          vb_pat: {
-            pat_desc:
-              TPatVar(bind, _) | TPatAlias({pat_desc: TPatAny}, bind, _),
-          },
+          vb_pat:
+            {
+              pat_desc:
+                TPatVar(bind, _) | TPatAlias({pat_desc: TPatAny}, bind, _),
+            },
         },
         ...rest,
       ],
@@ -1590,10 +1592,11 @@ let rec transl_anf_statement =
       [
         {
           vb_expr,
-          vb_pat: {
-            pat_desc:
-              TPatVar(bind, _) | TPatAlias({pat_desc: TPatAny}, bind, _),
-          },
+          vb_pat:
+            {
+              pat_desc:
+                TPatVar(bind, _) | TPatAlias({pat_desc: TPatAny}, bind, _),
+            },
         },
         ...rest,
       ],

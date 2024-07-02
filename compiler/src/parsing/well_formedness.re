@@ -359,10 +359,11 @@ let disallowed_attributes = (errs, super) => {
           _,
           [
             {
-              pvb_pat: {
-                ppat_desc:
-                  PPatVar(_) | PPatConstraint({ppat_desc: PPatVar(_)}, _),
-              },
+              pvb_pat:
+                {
+                  ppat_desc:
+                    PPatVar(_) | PPatConstraint({ppat_desc: PPatVar(_)}, _),
+                },
             },
           ],
         ) =>
